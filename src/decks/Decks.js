@@ -7,7 +7,9 @@ import CreateDeck from "./CreateDeck";
 import Deck from "./Deck";
 import Card from "../cards/Card";
 import NotFound from "../Layout/NotFound";
-import ErrorMessage from "../common/ErrorMessage";
+import { readDeck } from "../utils/api";
+import DeckIdRoutes from "./DeckIdRoutes";
+
 
 function Decks({decks, setDecks}) {
 
@@ -16,10 +18,7 @@ function Decks({decks, setDecks}) {
             <Routes>
                 {/* Need to add the deckId */}
                 <Route path="/new" element={<CreateDeck decks={decks} setDecks={setDecks}/>}/>
-                <Route path="/:deckId" element={<Deck decks={decks} setDecks={setDecks} />}/>
-                <Route path="/:deckId/study" element={<Study decks={decks} />}/> 
-                <Route path="/:deckId/edit" element={<EditDeck decks={decks} setDecks={setDecks}/>}/> 
-                <Route path="/:deckId/cards/*" element={<Card decks={decks} setDecks={setDecks}/>}/> 
+                <Route path="/:deckId/*" element={<DeckIdRoutes decks={decks} setDecks={setDecks}/>} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>
@@ -27,3 +26,12 @@ function Decks({decks, setDecks}) {
 }
 
 export default Decks;                
+
+
+
+/* 
+    <Route path="/:deckId" element={<Deck decks={decks} setDecks={setDecks} deck={deck} setDeck={setDeck} />}/>
+                <Route path="/:deckId/study" element={<Study decks={decks} />}/> 
+                <Route path="/:deckId/edit" element={<EditDeck decks={decks} setDecks={setDecks}/>}/> 
+                <Route path="/:deckId/cards/*" element={<Card decks={decks} setDecks={setDecks}/>}/> 
+*/

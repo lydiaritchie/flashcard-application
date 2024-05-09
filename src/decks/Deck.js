@@ -5,18 +5,16 @@ import  HandleDelete from "../common/HandleDelete";
 import { deleteCard, readDeck, listDecks } from "../utils/api";
 
 
-function Deck({ decks, setDecks }) {
-  const {state}  = useLocation();
-  const [ deck, setDeck ] = useState({});
+function Deck({ decks, setDecks, deck, setDeck}) {
   const { deckId } = useParams();
   const navigate = useNavigate({});
   const [cards, setCards] = useState([]);
   const [navBar, setNavBar] = useState("");
 
 
+  console.log(deck);
 
-
-  //console.log(`After getDeck, deckname is: ${deck.name}`);
+  /*
    useEffect(() => {
     async function getDeck() {
       try {
@@ -32,10 +30,9 @@ function Deck({ decks, setDecks }) {
       }
     }
     getDeck();
-  }, [decks]);
+  }, [decks]); */
   
-  console.log("deck: ");
-  console.log(deck);
+
   //console.log(`After getDeck, deckname is: ${deck.name}`);
   //component to retrieve the list of cards
   useEffect(() => {

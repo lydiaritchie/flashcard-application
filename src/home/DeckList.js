@@ -28,7 +28,7 @@ function DeckList({ decks, setDecks }) {
 
   const deckCards = decks.map((deck) => {
     return (
-      <div className="list-group-item">
+      <div className="list-group-item" key={deck.id}>
         <div className="row">
           <h3 className="col col-9">{deck.name}</h3>
           <p className="col col-3 alignRight">{deck.cards.length} cards</p>
