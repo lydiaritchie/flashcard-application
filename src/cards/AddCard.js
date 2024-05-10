@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { readDeck, createCard } from "../utils/api";
 import ErrorMessage from "../common/ErrorMessage";
+import CardForm from "./CardForm";
 
 function AddCard({deck}) {
     const { deckId } = useParams();
@@ -37,7 +38,6 @@ function AddCard({deck}) {
         
     }
 
-
     //handeSubmit() to add the card to the deck
     async function handleSubmit(event){
         event.preventDefault();
@@ -56,27 +56,7 @@ function AddCard({deck}) {
         <div>
           {navBar}
             <h2>Add Card</h2>
-          <form className="col" onSubmit={handleSubmit}>
-                <label className="col" htmlFor="name">Front</label>
-                <textarea 
-                    className="col" 
-                    placeholder="Front side of card" 
-                    onChange={handleChange}
-                    value={front}
-                    required
-                    />
-                <label className="col" htmlFor="description">Back</label>
-                <textarea 
-                    placeholder="Back side of card" 
-                    className="col"
-                    onChange= {handleChange}
-                    value={back}
-                    required
-                    />
-
-                <Link to={`/decks/${deckId}`} className="btn btn-danger">Cancel</Link>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <CardForm deckId={deckId} card={false}/>
         </div>
     )
 

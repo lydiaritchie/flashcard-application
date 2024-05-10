@@ -251,6 +251,24 @@
       "back": "lhkjhjkl",
       "deckId": 49,
       "id": 45
+    },
+    {
+      "front": "asdfasdf",
+      "back": "fasdfasdf",
+      "deckId": 1,
+      "id": 47
+    },
+    {
+      "front": "This is a new card",
+      "back": "This is a new card",
+      "deckId": 1,
+      "id": 48
+    },
+    {
+      "front": "dfas",
+      "back": "afds",
+      "deckId": 1,
+      "id": 49
     }
   ]
 }
