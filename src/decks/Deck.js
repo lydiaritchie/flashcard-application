@@ -11,29 +11,6 @@ function Deck({ decks, setDecks, deck, setDeck}) {
   const [cards, setCards] = useState([]);
   const [navBar, setNavBar] = useState("");
 
-
-  console.log(deck);
-
-  /*
-   useEffect(() => {
-    async function getDeck() {
-      try {
-        const currentDeck = decks.find((deck) => {
-          //console.log("comparing Ids");
-          return deck.id == deckId;
-        });
-
-        setDeck(currentDeck);
-
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    getDeck();
-  }, [decks]); */
-  
-
-  //console.log(`After getDeck, deckname is: ${deck.name}`);
   //component to retrieve the list of cards
   useEffect(() => {
     async function getCards() {
@@ -48,6 +25,7 @@ function Deck({ decks, setDecks, deck, setDeck}) {
     getCards();
   }, [decks]);
 
+  //handles deleting the card
   async function HandleDeleteCard(id){
     if(window.confirm("Delete this card?")) {
       await deleteCard(id)
@@ -75,7 +53,9 @@ function Deck({ decks, setDecks, deck, setDeck}) {
       </div>
     );
   });
+  
 
+  //render the navbar when deck is loaded
   useEffect(() => {
     async function getNavBar() {
       try {

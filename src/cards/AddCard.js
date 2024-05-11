@@ -1,16 +1,9 @@
 import React from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { readDeck, createCard } from "../utils/api";
-import ErrorMessage from "../common/ErrorMessage";
 import CardForm from "./CardForm";
 
 function AddCard({deck}) {
     const { deckId } = useParams();
-    const navigate = useNavigate();
-    const [front, setFront] = useState("");
-    const [back, setBack] = useState("");
-
 
     const navBar = (
         <nav aria-label="breadcrumb">
@@ -27,30 +20,6 @@ function AddCard({deck}) {
                 </ol>
             </nav>
     )
-
-    //handleChange for the input fields
-    const handleChange = (event) => {
-        if(event.target.placeholder.includes("Front")){
-            setFront(event.target.value);
-        } else {
-            setBack(event.target.value);
-        }
-        
-    }
-
-    //handeSubmit() to add the card to the deck
-    async function handleSubmit(event){
-        event.preventDefault();
-        //console.log("The form was submitted!");
-        try{
-            await createCard(deckId, {"front": front, "back": back});
-
-            navigate(-1);
-        } catch(error){
-            return (<ErrorMessage />);
-        }
-
-    }
 
     return (
         <div>

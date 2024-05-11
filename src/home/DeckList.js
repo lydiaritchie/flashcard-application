@@ -2,30 +2,11 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import deleteHandler from "../common/HandleDelete";
 
-/*
-This is a component which displays the decks in a list of cards. 
-Each card should have the Deck title, description, view button and study button. 
-
-View button links to <Deck /> component.
-Study button links to <Study /> component.
-
-Loop through all the decks, creating a card for each one. 
-1. Retrieve the decks from listDecks() or readDeck()
-   - with useEffect() and an async function
-2. Log them to the consolse.
-3. Map the decks form their array to a new array with the html card format.
-
-*/
+//Displays all the deck on the home page
 function DeckList({ decks, setDecks }) {
   const navigate = useNavigate();
 
-  //console.log(decks.length);
-
-  //console.log(`decks: ${JSON.stringify(decks)} type: ${typeof decks}`);
-
-  //Here will be the map method to create a list of decks as cards.
-  //for each deck, return the jsx structure
-
+  //mpa the deck into an array of jsx elements
   const deckCards = decks.map((deck) => {
     return (
       <div className="list-group-item" key={deck.id}>

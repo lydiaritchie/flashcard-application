@@ -95,7 +95,6 @@ function Study({ decks, setDecks }) {
   }
 
 
-
     //nav bar for top of the page
     const navBar = (
       <nav aria-label="breadcrumb">
@@ -110,10 +109,6 @@ function Study({ decks, setDecks }) {
         </ol>
       </nav>
     );
-
-  //console.log(isFront);
-  //console.log(cards);
-  //console.log(JSON.stringify(currentCard));
 
 
   return (

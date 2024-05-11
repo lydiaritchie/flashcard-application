@@ -8,7 +8,8 @@ function EditCard({ deck, decks, setDecks }) {
   const { cardId, deckId } = useParams();
   const [card, setCard] = useState({});
 
-
+  //get the card to pass through to CardForm
+  //Runs once at the first render
   useEffect(() => {
     async function getCard() {
       const card = await readCard(cardId);
@@ -17,7 +18,6 @@ function EditCard({ deck, decks, setDecks }) {
     getCard();
   }, []);
 
-  //console.log(card);
 
   const navBar = (
     <div>

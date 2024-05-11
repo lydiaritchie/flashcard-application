@@ -6,15 +6,14 @@ import AddCard from "./AddCard";
 import EditCard from "./EditCard";
 import NotFound from "../Layout/NotFound";
 
-function Card({ decks, setDecks }) {
+function Card({ decks }) {
     const { deckId } = useParams();
     const [ deck, setDeck ] = useState({});
+    
     //get deck as a prop to pass through
-
     useEffect(() => {
         async function getDeck() {
             const currentDeck = await readDeck(deckId);
-            //console.log(currentDeck);
             setDeck(currentDeck);
         }
         getDeck();

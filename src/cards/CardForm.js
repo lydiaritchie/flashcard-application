@@ -1,16 +1,17 @@
 import React from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { updateCard, createCard, listDecks } from "../utils/api";
+import { updateCard, createCard } from "../utils/api";
 import ErrorMessage from "../common/ErrorMessage";
 
-//card is the object of the current card. This will be passed in from EditCard.
-//if card is undefined, then create a new card
+//From for AddCard and EditCard
 function CardForm({ deckId, card }) {
   const [front, setFront] = useState("");
   const [back, setBack] = useState("");
   const navigate = useNavigate();
 
+  //Card will be passed in from EditCard, but false will be passed in in its place from CreateCard
+  //if there is a card it will be edited, if its false a new card will be created
   useEffect(() => {
     if (card) {
       setFront(card.front);
@@ -22,7 +23,7 @@ function CardForm({ deckId, card }) {
 
   console.log(card);
 
-  //console.log("cardId: " + cardId);
+  //hadle a change to the textareas
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -37,7 +38,6 @@ function CardForm({ deckId, card }) {
   //handeSubmit() to add the card to the deck
   async function handleSubmit(event) {
     event.preventDefault();
-    //console.log("The form was submitted!");
     if (card) {
       const updatedCard = {
         ...card,
@@ -50,14 +50,6 @@ function CardForm({ deckId, card }) {
       } catch (error) {
         console.log("error " + error);
       }
-
-      //console.log("before: "+JSON.stringify(result));
-
-      //update the decks state to match the API
-      //const deckList = await listDecks();
-      //const deck = await readDeck(deckId);
-      //setDecks(deckList);
-      //console.log("deck: " + deck);
       navigate(-1);
     } else {
       try {

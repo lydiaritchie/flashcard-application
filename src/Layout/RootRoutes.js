@@ -5,18 +5,11 @@ import Home from "../home/Home";
 import { listDecks } from "../utils/api";
 import NotFound from "./NotFound";
 import Decks from "../decks/Decks";
-/*
-
-This is for the Primary Routes.
-
-*/
 
 function RootRoutes() {
-  //the highest level to initiate the state so that
-  //everyone has access to them!
   const [decks, setDecks] = useState([]);
 
-  //this effect is to retrieve the list of decks from the API
+  //get the list of decks from the API
   useEffect(() => {
     async function getDecks() {
       try {

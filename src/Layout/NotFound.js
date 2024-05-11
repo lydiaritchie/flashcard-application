@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//displayed when a URL isn't found
 function NotFound() {
   return (
     <div className="NotFound">
