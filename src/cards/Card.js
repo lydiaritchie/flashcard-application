@@ -6,10 +6,11 @@ import AddCard from "./AddCard";
 import EditCard from "./EditCard";
 import NotFound from "../Layout/NotFound";
 
+//Routing for pages that use deckId
 function Card({ decks }) {
     const { deckId } = useParams();
     const [ deck, setDeck ] = useState({});
-    
+
     //get deck as a prop to pass through
     useEffect(() => {
         async function getDeck() {
@@ -17,13 +18,13 @@ function Card({ decks }) {
             setDeck(currentDeck);
         }
         getDeck();
-    }, []);
+    }, [decks]);
 
     return (
         <div>
             <Routes>
                 <Route path="/new" element={<AddCard deck={deck}/>}/>
-                <Route path=":cardId/edit" element={<EditCard deck={deck} decks={decks} setDecks={setDeck}/>}/>
+                <Route path=":cardId/edit" element={<EditCard deck={deck}/>}/>
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>

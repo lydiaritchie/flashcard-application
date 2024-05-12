@@ -18,7 +18,6 @@ function CardForm({ deckId, card }) {
       setBack(card.back);
       console.log(`front: ${front} back: ${back}`);
     }
-
   }, [card]);
 
   console.log(card);
@@ -30,10 +29,9 @@ function CardForm({ deckId, card }) {
     if (name === "front") {
       setFront(value);
     } else {
-      setBack(value); 
+      setBack(value);
     }
   }
-
 
   //handeSubmit() to add the card to the deck
   async function handleSubmit(event) {
@@ -110,12 +108,25 @@ function CardForm({ deckId, card }) {
         />
       )}
 
-      <Link to={`/decks/${deckId}`} className="btn btn-danger">
-        Done
-      </Link>
-      <button type="submit" name="save" className="btn btn-primary">
-        Save
-      </button>
+      {card ? (
+        <>
+          <Link to={`/decks/${deckId}`} className="btn btn-danger">
+            Cancel
+          </Link>
+          <button type="submit" name="save" className="btn btn-primary">
+            Submit
+          </button>
+        </>
+      ) : (
+        <>
+          <Link to={`/decks/${deckId}`} className="btn btn-danger">
+            Done
+          </Link>
+          <button type="submit" name="save" className="btn btn-primary">
+            Save
+          </button>
+        </>
+      )}
     </form>
   );
 }

@@ -260,7 +260,7 @@
     },
     {
       "front": "This is a new card",
-      "back": "This is a new card",
+      "back": "This is a new cardkl",
       "deckId": 1,
       "id": 48
     },
@@ -281,6 +281,12 @@
       "back": "asdf",
       "deckId": 1,
       "id": 51
+    },
+    {
+      "front": "asdf",
+      "back": "asdf",
+      "deckId": 1,
+      "id": 52
     }
   ]
 }

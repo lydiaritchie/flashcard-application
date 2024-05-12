@@ -4,7 +4,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CardForm from "./CardForm";
 
-function EditCard({ deck, decks, setDecks }) {
+function EditCard({ deck }) {
   const { cardId, deckId } = useParams();
   const [card, setCard] = useState({});
 
@@ -16,7 +16,7 @@ function EditCard({ deck, decks, setDecks }) {
       setCard(card);
     }
     getCard();
-  }, []);
+  }, [deck]);
 
 
   const navBar = (

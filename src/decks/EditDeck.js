@@ -21,7 +21,7 @@ function EditDeck({ setDecks }) {
       setDescription(deck.description);
     }
     getDeck();
-  }, []);
+  }, [deckId]);
 
   const navBar = (
     <div>

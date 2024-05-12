@@ -11,35 +11,24 @@ import { readDeck } from "../utils/api";
 
 function DeckIdRoutes({ decks, setDecks }) {
   const { deckId } = useParams();
-  const navigate = useNavigate();
 
   console.log(deckId);
   const [deck, setDeck] = useState(null);
 
   useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-
     async function fetchDeck() {
       try {
         const fetchedDeck = await readDeck(deckId);
         setDeck(fetchedDeck);
       } catch (error) {
-        if (error.name === `AbortError`) {
-          console.log(`Fetch aborted`);
-        } else {
           console.log(error);
-        }
       }
     }
-
+    //if there is a deckId
     if (deckId) {
       fetchDeck();
     }
 
-    return () => {
-      abortController.abort();
-    };
   }, [deckId]);
 
 

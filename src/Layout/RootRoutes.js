@@ -20,7 +20,7 @@ function RootRoutes() {
       }
     }
     getDecks();
-  }, []);
+  }, [listDecks]);
 
   return (
     <div className="container">
