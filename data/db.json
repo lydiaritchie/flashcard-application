@@ -269,6 +269,18 @@
       "back": "afds",
       "deckId": 1,
       "id": 49
+    },
+    {
+      "front": "dafs",
+      "back": "fads",
+      "deckId": 1,
+      "id": 50
+    },
+    {
+      "front": "dafs",
+      "back": "asdf",
+      "deckId": 1,
+      "id": 51
     }
   ]
 }

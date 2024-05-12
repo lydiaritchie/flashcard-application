@@ -22,13 +22,13 @@ function DeckIdRoutes({ decks, setDecks }) {
 
     async function fetchDeck() {
       try {
-        const fetchedDeck = await readDeck(deckId, { signal });
+        const fetchedDeck = await readDeck(deckId);
         setDeck(fetchedDeck);
       } catch (error) {
         if (error.name === `AbortError`) {
           console.log(`Fetch aborted`);
         } else {
-          console.log(`Error fetching data`);
+          console.log(error);
         }
       }
     }

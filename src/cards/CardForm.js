@@ -38,6 +38,7 @@ function CardForm({ deckId, card }) {
   //handeSubmit() to add the card to the deck
   async function handleSubmit(event) {
     event.preventDefault();
+    //if it is in editing mode
     if (card) {
       const updatedCard = {
         ...card,
@@ -52,9 +53,10 @@ function CardForm({ deckId, card }) {
       }
       navigate(-1);
     } else {
+      //if it is adding the card
       try {
         await createCard(deckId, { front: front, back: back });
-        navigate(-1);
+        navigate(0);
       } catch (error) {
         return <ErrorMessage />;
       }
@@ -66,6 +68,7 @@ function CardForm({ deckId, card }) {
       <label className="col" htmlFor="name">
         Front
       </label>
+      {/* first is editing a card, second is adding a card */}
       {card ? (
         <textarea
           className="col"
@@ -108,10 +111,10 @@ function CardForm({ deckId, card }) {
       )}
 
       <Link to={`/decks/${deckId}`} className="btn btn-danger">
-        Cancel
+        Done
       </Link>
-      <button type="submit" className="btn btn-primary">
-        Submit
+      <button type="submit" name="save" className="btn btn-primary">
+        Save
       </button>
     </form>
   );

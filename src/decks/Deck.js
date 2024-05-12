@@ -75,7 +75,7 @@ function Deck({ decks, setDecks, deck, setDeck}) {
       }
     }
     getNavBar();
-  }, [deck]);
+  }, [decks]);
 
   return (
     <div>
