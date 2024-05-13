@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import CardForm from "./CardForm";
 
+//Add Card screen
 function AddCard({deck}) {
     const { deckId } = useParams();
 
